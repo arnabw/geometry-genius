@@ -15,7 +15,9 @@
     class="container mx-auto px-4 md:px-8 py-4 md:py-8 text-balance font-mono"
   >
     <header class="bg-[#1090D81A] p-4 rounded-lg">
-      <article class="flex justify-between items-center">
+      <article
+        class="flex justify-between items-center flex-col md:flex-row gap-4"
+      >
         <h1 class="text-[#111111CC] text-4xl font-bold">
           Interactive <br /><span class="text-2xl font-medium"
             >Geometry Genius</span
@@ -31,11 +33,12 @@
     </header>
     <main class="bg-gray-50 py-4 md:py-8">
       <section
-        class="flex flex-col-reverse lg:flex-row lg:justify-between gap-4 lg:gap-0"
+        class="flex flex-col-reverse lg:flex-row lg:justify-between gap-4"
       >
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Triangle -->
           <div
+            id="triangle"
             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-center items-center text-center px-4 md:px-8 py-6 md:py-12"
           >
             <a href="#">
@@ -59,12 +62,14 @@
               <!-- Computation Value -->
               <div class="flex justify-center items-center gap-2 mb-4">
                 <input
+                  id="triangleBase"
                   type="text"
                   placeholder="b"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
                 />
                 <span>cm</span>
                 <input
+                  id="triangleHeight"
                   type="text"
                   placeholder="h"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
@@ -74,15 +79,19 @@
               <button
                 type="button"
                 class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br hover:shadow-lg hover:shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
+                onclick="triangleBtn()"
               >
                 Compute
               </button>
               <!-- Display -->
-              <p>Area: <span>0</span> cm<sup>2</sup></p>
+              <p id="triangleText">
+                Area: <span id="triangleDisplay">0</span> cm<sup>2</sup>
+              </p>
             </div>
           </div>
           <!-- Rectangle -->
           <div
+            id="rectangle"
             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-center items-center text-center px-4 md:px-8 py-6 md:py-12"
           >
             <a href="#">
@@ -106,12 +115,14 @@
               <!-- Computation Value -->
               <div class="flex justify-center items-center gap-2 mb-4">
                 <input
+                  id="rectangleWidth"
                   type="text"
                   placeholder="W"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
                 />
                 <span>cm</span>
                 <input
+                  id="rectangleHeight"
                   type="text"
                   placeholder="I"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
@@ -121,15 +132,19 @@
               <button
                 type="button"
                 class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br hover:shadow-lg hover:shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
+                onclick="rectangleBtn()"
               >
                 Compute
               </button>
               <!-- Display -->
-              <p>Area: <span>0</span> cm<sup>2</sup></p>
+              <p id="rectangleText">
+                Area: <span id="rectangleDisplay">0</span> cm<sup>2</sup>
+              </p>
             </div>
           </div>
           <!-- Parallelogram -->
           <div
+            id="parallelogram"
             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-center items-center text-center px-4 md:px-8 py-6 md:py-12"
           >
             <a href="#">
@@ -153,12 +168,14 @@
               <!-- Computation Value -->
               <div class="flex justify-center items-center gap-2 mb-4">
                 <input
+                  id="parallelogramB"
                   type="text"
                   placeholder="b"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
                 />
                 <span>cm</span>
                 <input
+                  id="parallelogramH"
                   type="text"
                   placeholder="h"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
@@ -168,15 +185,19 @@
               <button
                 type="button"
                 class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br hover:shadow-lg hover:shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
+                onclick="parallelogramBtn()"
               >
                 Compute
               </button>
               <!-- Display -->
-              <p>Area: <span>0</span> cm<sup>2</sup></p>
+              <p id="parallelogramText">
+                Area: <span id="parallelogramDisplay">0</span> cm<sup>2</sup>
+              </p>
             </div>
           </div>
           <!-- Rhombus -->
           <div
+            id="rhombus"
             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-center items-center text-center px-4 md:px-8 py-6 md:py-12"
           >
             <a href="#">
@@ -200,12 +221,14 @@
               <!-- Computation Value -->
               <div class="flex justify-center items-center gap-2 mb-4">
                 <input
+                  id="rhombusD1"
                   type="text"
                   placeholder="d"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
                 />
                 <span>cm</span>
                 <input
+                  id="rhombusD2"
                   type="text"
                   placeholder="d"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
@@ -215,15 +238,19 @@
               <button
                 type="button"
                 class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br hover:shadow-lg hover:shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
+                onclick="rhombusBtn()"
               >
                 Compute
               </button>
               <!-- Display -->
-              <p>Area: <span>0</span> cm<sup>2</sup></p>
+              <p id="rhombusText">
+                Area: <span id="rhombusDisplay">0</span> cm<sup>2</sup>
+              </p>
             </div>
           </div>
           <!-- Pentagon -->
           <div
+            id="pentagon"
             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-center items-center text-center px-4 md:px-8 py-6 md:py-12"
           >
             <a href="#">
@@ -247,12 +274,14 @@
               <!-- Computation Value -->
               <div class="flex justify-center items-center gap-2 mb-4">
                 <input
+                  id="pentagonP"
                   type="text"
                   placeholder="p"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
                 />
                 <span>cm</span>
                 <input
+                  id="pentagonB"
                   type="text"
                   placeholder="b"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
@@ -262,15 +291,19 @@
               <button
                 type="button"
                 class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br hover:shadow-lg hover:shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
+                onclick="pentagonBtn()"
               >
                 Compute
               </button>
               <!-- Display -->
-              <p>Area: <span>0</span> cm<sup>2</sup></p>
+              <p id="pentagonText">
+                Area: <span id="pentagonDisplay">0</span> cm<sup>2</sup>
+              </p>
             </div>
           </div>
           <!-- Ellipse -->
           <div
+            id="ellipse"
             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-center items-center text-center px-4 md:px-8 py-6 md:py-12"
           >
             <a href="#">
@@ -294,12 +327,14 @@
               <!-- Computation Value -->
               <div class="flex justify-center items-center gap-2 mb-4">
                 <input
+                  id="ellipseA"
                   type="text"
                   placeholder="a"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
                 />
                 <span>cm</span>
                 <input
+                  id="ellipseB"
                   type="text"
                   placeholder="b"
                   class="bg-gray-200 border-none rounded-lg w-1/3"
@@ -309,15 +344,18 @@
               <button
                 type="button"
                 class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br hover:shadow-lg hover:shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
+                onclick="ellipseBtn()"
               >
                 Compute
               </button>
               <!-- Display -->
-              <p>Area: <span>0</span> cm<sup>2</sup></p>
+              <p id="ellipseText">
+                Area: <span id="ellipseDisplay">0</span> cm<sup>2</sup>
+              </p>
             </div>
           </div>
         </div>
-        <div class="border-2 p-5 max-h-96 rounded-lg">
+        <div id="areaCalc" class="border-2 p-5 max-h-96 rounded-lg">
           <h3 class="text-[#111111CC] text-xl font-bold underline text-center">
             Area Calculation
           </h3>
