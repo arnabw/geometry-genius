@@ -15,7 +15,7 @@ function firstCalculation(fistInput, secondInput, computeValue) {
 }
 let countCalc = 1;
 function displayValue(displayPlace, value, areaDisplay) {
-  displayPlace.innerText = value;
+  displayPlace.innerText = value.toFixed(2);
   const areaCalculation = document.getElementById("areaCalc");
   if (areaCalculation.children.length >= 13)
     areaCalculation.removeChild(areaCalculation.children[1]);
